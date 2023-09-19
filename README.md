@@ -23,6 +23,7 @@ A module for overflow protected, unsigned integer multiplication.
 |`sig_ov`|1           |Signals overflow to the top of the module|
 
 ![waveform](doc/wave.png)
+*Waveform generated from random values by test bench code.*
 
 ## How it works
 
