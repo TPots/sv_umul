@@ -27,10 +27,8 @@ A module for overflow protected, unsigned integer multiplication.
 ## How it works
 
 Given two $n$-bit binary values $A$ and $B$, their base ten values can be expressed as sums of powers of two:
-$$
-A = a_0 \cdot 2^0 + a_1 \cdot 2^1 + \cdots + a_{n-2} \cdot 2^{n-2} + a_{n-1}\cdot 2^{n-1}\\
-B = b_0 \cdot 2^0 + b_1 \cdot 2^1 + \cdots + b_{n-2} \cdot 2^{n-2} + b_{n-1}\cdot 2^{n-1}
-$$
+$$A = a_0 \cdot 2^0 + a_1 \cdot 2^1 + \cdots + a_{n-2} \cdot 2^{n-2} + a_{n-1}\cdot 2^{n-1}\\
+B = b_0 \cdot 2^0 + b_1 \cdot 2^1 + \cdots + b_{n-2} \cdot 2^{n-2} + b_{n-1}\cdot 2^{n-1}$$
 
 the product of $A$ and $B$ can then be expressed as the sum $C$:
 
