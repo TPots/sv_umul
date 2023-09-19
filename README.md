@@ -33,13 +33,9 @@ $$B = b_0 \cdot 2^0 + b_1 \cdot 2^1 + \cdots + b_{n-2} \cdot 2^{n-2} + b_{n-1}\c
 
 the product of $A$ and $B$ can then be expressed as the sum $C$:
 
-$$
-    C = \sum_{j=0}^n a_j \cdot 2^j \cdot (b_0 \cdot 2^0 + b_1 \cdot 2^1 + \cdots + b_{n-2} \cdot 2^{n-2} + b_{n-1} \cdot 2^{n-1})
-$$
+$$C = \sum_{j=0}^n a_j \cdot 2^j \cdot (b_0 \cdot 2^0 + b_1 \cdot 2^1 + \cdots + b_{n-2} \cdot 2^{n-2} + b_{n-1} \cdot 2^{n-1})$$
 by expanding,
-$$
-    C = \sum_{j=0}^n a_j \cdot (b_0 \cdot 2^{0 + j} + b_1 \cdot 2^{1+j} + \cdots + b_{n-2} \cdot 2^{n-2 + j} + b_{n-1} \cdot 2^{n-1+j})
-$$
+$$C = \sum_{j=0}^n a_j \cdot (b_0 \cdot 2^{0 + j} + b_1 \cdot 2^{1+j} + \cdots + b_{n-2} \cdot 2^{n-2 + j} + b_{n-1} \cdot 2^{n-1+j})$$
 
 Given that $a_j$ is a single bit of the $n$-bit binary signal $A$, the term of the sum $C$ is equal to the signal $B$ right shifted $j$ places iff the bit $a_j$ is true which can be expressed in SystemVerilog as:
 
