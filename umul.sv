@@ -1,83 +1,3 @@
-/*
-////
-== umul
-
-Takes in two `n` bit signals (`in0` and `in1`), and outputs the product on the signal `out`.
-
-If `out` is unable to encode the product of `in0`, and `in1` it is pulled high and the overflow is singaled on the output `sig_of`.
-
-==== Parameters
-
-- `DATA_WIDTH`: Input parameter setting the width of the signals `in0`,in1`,out`, and `overflow`. `DATA_WIDTH` has no value by default.
-
-==== Inputs
-
-[cols="25%,75%"]
-|===
-| Name
-| `in0`
-
-| Size
-| `DATA_WIDTH` as `[DATA_WIDTH - 1 : 0]`
-
-| Encoding
-| Unsigned Integer
-
-| Description
-| A signal carrying the second term of the product.
-|===
-
-
-[cols="25%,75%"]
-|===
-| Name
-| `in1`
-
-| Size
-| `DATA_WIDTH` as `[DATA_WIDTH - 1 : 0]`
-
-| Encoding
-| Unsigned Integer
-
-| Description
-| A signal carrying the second term of the product.
-|===
-
-==== Outputs
-
-[cols="25%,75%"]
-|===
-| Name
-| `out`
-
-| Size
-| `DATA_WIDTH` as `[DATA_WIDTH - 1 : 0]`
-
-| Encoding
-| Unsigned Integer
-
-| Description
-| A signal carrying the product of `in0` and `in1`. If `out` cannot enocde the product of `in0` and `in1`, `out` is pulled high.
-|===
-
-[cols="25%,75%"]
-|===
-| Name
-| `sig_ov`
-
-| Size
-| 1
-
-| Encoding
-| Boolean
-
-| Description
-| | A signal carrying the overflow condition of `out`. `sig_ov` is pulled high if `out` is overflowed by the product of `in0` and `in1` and otherwise is pulled low.
-|===
-
-////
-*/
-
 module umul
 #(parameter DATA_WIDTH)
 (
@@ -86,14 +6,18 @@ module umul
     output logic sig_ov
 );
 
+// Max value that can be stored in out
 logic [DATA_WIDTH - 1 : 0] MAX;
 assign MAX = '1;
 logic [DATA_WIDTH - 1 : 0] ZERO;
 assign ZERO = '0;
 
+// 2d array to store intermediate values
 logic [2 * DATA_WIDTH - 1 : 0] sum [DATA_WIDTH];
+// summation signal to store sum
 logic [2 * DATA_WIDTH - 1 : 0] product;
 
+//
 genvar i;
 generate
     for(i = 0; i < DATA_WIDTH; i++ ) begin
